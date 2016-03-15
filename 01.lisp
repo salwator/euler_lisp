@@ -17,18 +17,16 @@
 
 ;;; Filters only multiplies of specified factors from sequence
 (defun filter-multiplies-in-seq (seq factors)
- (let ((is-multiple (lambda (n)
-                     (some (lambda (divisor)
-                            (= 0 (mod n divisor)))
-                      factors))))
-    (remove-if-not is-multiple seq)))
+ (flet ((is-multiple (n) 
+         (some (lambda (divisor) 
+                (= 0 (mod n divisor))) 
+          factors)))
+    (remove-if-not #'is-multiple seq)))
 
 
 ;;; Final sum of multiplies 
 (defun main ()
-    (let 
-     ((multiplies (filter-multiplies-in-seq 
-                   (consecutive-numbers *maxnum*)
-                   *factors*)))
-     (print
-      (apply '+ multiplies))))
+    (let ((multiplies (filter-multiplies-in-seq
+                       (consecutive-numbers *maxnum*)
+                       *factors*)))
+     (print (apply '+ multiplies))))
