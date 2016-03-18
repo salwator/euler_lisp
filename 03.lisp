@@ -23,18 +23,21 @@
          do (setf (bit sieve n) 1)))))
 
 
-
 (defun collect-first-factor (seq num)
  "Collects first factor of num from number list in seq" 
- (when seq)
     (let (( divisor (car seq)))
         (if (equal 0 (rem num divisor))
             divisor
             (collect-first-factor (cdr seq) num))))
 
 
+(defun find-biggest-prime-factor (num)
+ "Finding biggest from prime factors of num."
+    (let ((factors (reverse (generate-primes-up-to
+                             (values (ceiling (sqrt num))))) ))
+     (collect-first-factor factors num)))
+
 
 ;;; MAIN function for executable build
 (defun main()
- (let ((factors (reverse (generate-primes-up-to *factor-limit*))))
-    (print (collect-first-factor factors *tested-number*))))
+ (print (find-biggest-prime-factor *tested-number*)))
