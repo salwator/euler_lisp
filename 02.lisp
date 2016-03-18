@@ -13,7 +13,7 @@
 
 ;;; Fibbonacci sequence up to max-element
 (defun fibb-sequence (max-element)
-    (let ((fibb        '(1 1)))
+    (let ((fibb '(1 1)))
         (loop for i from 1
               until (> (car fibb)
                        max-element)
@@ -27,8 +27,7 @@
 
 ;;; Sum all even-valued elements of fibbonacci sequence up to max-element
 (defun sum-even-fibb (max-element)
- (apply '+ (filter-even-only
-            (fibb-sequence max-element))))
+ (apply '+ (filter-even-only (fibb-sequence max-element))))
 
 ;;; main function to run in executable
 (defun main ()
