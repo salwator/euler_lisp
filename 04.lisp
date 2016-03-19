@@ -33,19 +33,15 @@
 
 ;;; Getting products of numbers
 
-(defun flatten (l)
- "Just flatten given nested list"
- (cond ((null l) nil)
-       ((atom l) (list l))
-       (t (loop for a in l appending (flatten a)))))
-
-
 (defun all-products (max-num min-num)
  "Produces list of all products (1 to max-num) x (1 to max-num)"
- (flatten (loop for i from max-num downto min-num
-           collect (loop
-                    for k from max-num downto i
-                    collect (* i k))))) 
+    (loop
+     for i from max-num downto min-num
+     append (loop
+             for k from max-num downto i
+             collect (* i k))
+        into products
+     finally (return products)))
 
 ;;; MAIN function for executable
 (defun main()
