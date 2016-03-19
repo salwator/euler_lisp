@@ -43,11 +43,9 @@
 (defun all-products (max-num min-num)
  "Produces list of all products (1 to max-num) x (1 to max-num)"
  (flatten (loop for i from max-num downto min-num
-           collect (flet ((multiplicate (x) (* x i)))
-                    (mapcar #'multiplicate
-                            (loop
-                             for k from max-num downto i
-                             collect k)))))) 
+           collect (loop
+                    for k from max-num downto i
+                    collect (* i k))))) 
 
 ;;; MAIN function for executable
 (defun main()
