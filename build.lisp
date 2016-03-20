@@ -10,10 +10,16 @@
 ;;; Load Lisp file to build
 (load *script-name*)
 
+(setf (symbol-function 'timed-main)
+ "Print time measures of solution execution"
+ (lambda ()
+  (time (main)))) 
+
+
 ;;; Make executable
 (sb-ext:save-lisp-and-die *output-file*
  :purify t
  :executable t
- :toplevel 'main)
+ :toplevel 'timed-main)
     
 
