@@ -10,8 +10,8 @@
 ;;; Load Lisp file to build
 (load *script-name*)
 
+;;; Print time measures of solution execution
 (setf (symbol-function 'timed-main)
- "Print time measures of solution execution"
  (lambda ()
   (time (main)))) 
 
