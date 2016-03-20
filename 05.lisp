@@ -54,7 +54,6 @@
 (defparameter *max-num* 20)
 
 (defun main ()
- (time
     (let ((max-factor *max-num*))
-    (print (multiply-factors (calculate-factors max-factor))))))
+    (print (multiply-factors (calculate-factors max-factor)))))
 
