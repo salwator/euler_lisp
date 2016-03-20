@@ -56,7 +56,7 @@
 ;;; MAIN function for executable
 
 (defun main()
- (time (let ((   big 999)
+ (let ((   big 999)
              ( small 100))
-      (print (find-biggest-palindrome (all-products big small))))))
+      (print (find-biggest-palindrome (all-products big small)))))
 
