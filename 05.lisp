@@ -18,7 +18,8 @@
          do (setf (bit sieve n) 1)))))
 
 ;;; We're gonna need primes with their exponents as factors
-(defstruct factor prime exponent)
+(defstruct factor (prime  1 :type fixnum)
+                  (exponent 0 :type fixnum))
 
 ;;; Maths for finding those exponents out
 (defun calculate-exponent (max-factor prime)
