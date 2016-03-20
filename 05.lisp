@@ -42,7 +42,7 @@
 (defun multiply-factors (factors)
  "Multiplies powered factors in list"
  (if factors
-    (let* ( (factor (car factors)) )
+    (let ((factor (car factors)))
           (* (expt (factor-prime factor) 
                    (factor-exponent factor))
              (multiply-factors (cdr factors))))
